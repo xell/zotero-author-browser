@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run *)",
+      "Bash(npm install *)",
+      "Bash(find /Applications -name \"item-box*\" 2>/dev/null | head -10; find ~/Library -name \"item-box*\" 2>/dev/null | head -5)",
+      "Read(//private/tmp/zotero-omni/**)",
+      "Bash(unzip -p omni.ja)",
+      "Bash(unzip -l /tmp/zotero-omni/omni.ja)",
+      "Bash(unzip -l /Applications/Zotero.app/Contents/Resources/app/omni.ja)",
+      "Bash(unzip -p /Applications/Zotero.app/Contents/Resources/app/omni.ja chrome/content/zotero/elements/itemBox.js)"
+    ]
+  }
+}

@@ -236,17 +236,23 @@ export async function showAuthorByID(id: number) {
 export async function showAuthorFromPopupMenu(ev: Event) {
   let row;
   let fields;
+  const itemBox = (ZoteroPane.itemPane?.querySelector("info-box") ??
+    ZoteroPane.itemPane?.querySelector("item-box")) as any;
+  if (!itemBox) return;
   if (ev.target) {
-    row = (ev.target as XULPopupElement).ownerDocument.popupNode.closest(
-      ".meta-row",
-    );
+    // Zotero 9: info-box tracks the right-clicked node in _popupNode
+    // Zotero 7: fall back to menupopup.triggerNode / document.popupNode
+    const menuitem = ev.target as Element;
+    const popupNode =
+      itemBox._popupNode ??
+      (menuitem.closest("menupopup") as any)?.triggerNode ??
+      (menuitem.ownerDocument as any).popupNode;
+    row = popupNode?.closest(".meta-row");
   } else {
     return;
   }
-  if (ZoteroPane.itemPane) {
-    fields = ZoteroPane.itemPane
-      .querySelector("item-box")
-      .getCreatorFields(row);
+  if (row) {
+    fields = itemBox.getCreatorFields(row);
   }
   let id: number;
   await Zotero.DB.executeTransaction(async function () {
