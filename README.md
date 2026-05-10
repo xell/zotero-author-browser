@@ -3,6 +3,8 @@
 [![zotero target version](https://img.shields.io/badge/Zotero-7-green?style=flat-square&logo=zotero&logoColor=CC2936)](https://www.zotero.org)
 [![Using Zotero Plugin Template](https://img.shields.io/badge/Using-Zotero%20Plugin%20Template-blue?style=flat-square&logo=github)](https://github.com/windingwind/zotero-plugin-template)
 
+<mark>2026-05-10</mark> I updated the code to work with Zotero 9 by vibe coding. That's it.
+
 This repo is under early development.
 
 This addon simplifies viewing and statistics of authors/creators in a zotero library.
